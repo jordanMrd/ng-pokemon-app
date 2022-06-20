@@ -1,27 +1,22 @@
-# NgPokemonApp
+Premier projet Angular, tuto suivi:
+https://www.youtube.com/watch?v=DTIYVffhJuU&t=10882s
+commencé le 20/06/2022
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.5.
+->fichier node_modules: contient toute les dépendance du projet donc Angular
+->src: contient les sources du projet
+->app: code source
+->app-routing-module.ts: contient les routes
+->assets: ici on peut mettre les images
+->environnements: contient les environnements du projet
 
-## Development server
+->browerslistrc: fichier de configuration pour paramétrer certains outils en fonction des navigateurs
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+->gitignore: fichier à ignorer si on utilise git
 
-## Code scaffolding
+->angular.json: fichier important
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+->tsconfig.app.json et tsconfig.json: contient la configuration du compilateur typescript pour le projet
 
-## Build
+<<TIPS>>
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+-pour ne pas avoir à rajouter "undefined" pour le typage: aller dans le fichier tsconfig.json, rajouter la propriété ' "strictPropertyInitialization": false' dans l'objet "compilerOptions"
