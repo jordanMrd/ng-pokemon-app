@@ -1,2 +1,6 @@
 <h1>{{ title }}</h1>
-<p *ngFor="let pokemon of pokemonList">{{ pokemon.name }}</p>
+<input #input (keyup.enter)="selectPokemon(input.value)" type="number" />
+<p>Vous avez sélectionné le pokémon: {{ pokemonSelected?.name }}</p>
+<p *ngFor="let pokemon of pokemonList">
+  {{ pokemon.name }}
+</p>

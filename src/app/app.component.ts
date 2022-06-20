@@ -10,13 +10,23 @@ import { Pokemon } from './pokemon';
 export class AppComponent implements OnInit {
   title = 'Liste de Pokémons';
   pokemonList: Pokemon[] = POKEMONS;
+  pokemonSelected: Pokemon | undefined;
 
   ngOnInit(): void {
     console.table(this.pokemonList);
-    this.selectPokemon(this.pokemonList[0]);
   }
 
-  selectPokemon(pokemon: Pokemon) {
-    console.log(`Vous avez cliqué sur le pokémon ${pokemon.name}`);
+  selectPokemon(pokemonId: string) {
+    // le + permet de cast en un nombre
+    let pokemon: Pokemon | undefined = this.pokemonList.find(
+      (pokemon) => pokemon.id == +pokemonId
+    );
+    if (pokemon) {
+      console.log(`Vous avez demandé le pokémon ${pokemon.name}`);
+      this.pokemonSelected = pokemon;
+    } else {
+      console.log(`Le pokémon que vous avez demandé n'existe pas`);
+      this.pokemonSelected = pokemon;
+    }
   }
 }
