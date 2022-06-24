@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { POKEMONS } from './moke-pokemon-list';
 import { Pokemon } from './pokemon';
 
@@ -9,4 +10,8 @@ import { Pokemon } from './pokemon';
 })
 export class AppComponent {
   title = 'Liste de Pokémons';
+  constructor(private router: Router) {}
+  goToHomePage() {
+    this.router.navigate(['/pokemons']);
+  }
 }
