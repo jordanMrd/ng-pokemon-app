@@ -9,7 +9,12 @@ import { ListPokemonComponent } from './list-pokemon/list-pokemon.component';
 import { DetailPokemonComponent } from './detail-pokemon/detail-pokemon.component';
 
 @NgModule({
-  declarations: [AppComponent, BorderCardDirective, ListPokemonComponent, DetailPokemonComponent],
+  declarations: [
+    AppComponent,
+    BorderCardDirective,
+    ListPokemonComponent,
+    DetailPokemonComponent,
+  ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],
   bootstrap: [AppComponent],
