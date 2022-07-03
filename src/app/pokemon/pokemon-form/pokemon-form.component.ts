@@ -9,41 +9,42 @@ import { PokemonService } from '../pokemon.service';
   styleUrls: ['./pokemon-form.component.scss'],
 })
 export class PokemonFormComponent implements OnInit {
-  @Input() pokemon: Pokemon;
+  @Input() pokemon: Pokemon; //lorsqu'on va appeler app-pokemon-form, on doit passer un pokemon en parametre
   pokemonTypeList: string[];
   constructor(private pokemonService: PokemonService, private router: Router) {}
 
   ngOnInit(): void {
     this.pokemonTypeList = this.pokemonService.getPokemonTypeList();
   }
-
   hasType(type: string): boolean {
     return this.pokemon.types.includes(type);
   }
 
   selectType($event: Event, type: string) {
-    const isCheck: boolean = ($event.target as HTMLInputElement).checked;
+    const isChecked: boolean = ($event.target as HTMLInputElement).checked;
 
-    if (isCheck) {
+    if (isChecked) {
       this.pokemon.types.push(type);
     } else {
       const index = this.pokemon.types.indexOf(type);
       this.pokemon.types.splice(index, 1);
+      //delete this.pokemon.types[index];
     }
+  }
+
+  onSubmit() {
+    console.log('submit form');
+    this.router.navigate(['/pokemon', this.pokemon.id]);
   }
 
   isTypesValid(type: string): boolean {
-    if (this.pokemon.types.length == 1 && this.hasType(type)) {
+    if (
+      (this.pokemon.types.length == 1 && this.hasType(type)) ||
+      (this.pokemon.types.length > 2 && !this.hasType(type))
+    ) {
       return false;
     }
 
-    if (this.pokemon.types.length > 2 && !this.hasType(type)) {
-      return false;
-    }
     return true;
-  }
-  onSubmit() {
-    console.log('Submit form');
-    this.router.navigate(['/pokemon', this.pokemon.id]);
   }
 }

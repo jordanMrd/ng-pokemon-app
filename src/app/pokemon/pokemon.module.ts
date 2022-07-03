@@ -8,8 +8,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { PokemonService } from './pokemon.service';
 import { FormsModule } from '@angular/forms';
 import { PokemonFormComponent } from './pokemon-form/pokemon-form.component';
+import { EditpokemonComponent } from './editpokemon/editpokemon.component';
 
 const pokemonRoutes: Routes = [
+  { path: 'edit/pokemon/:id', component: EditpokemonComponent },
   { path: 'pokemons', component: ListPokemonComponent },
   { path: 'pokemon/:id', component: DetailPokemonComponent },
 ];
@@ -21,6 +23,7 @@ const pokemonRoutes: Routes = [
     DetailPokemonComponent,
     PokemonTypeColorPipe,
     PokemonFormComponent,
+    EditpokemonComponent,
   ],
   imports: [CommonModule, FormsModule, RouterModule.forChild(pokemonRoutes)],
   providers: [PokemonService],
